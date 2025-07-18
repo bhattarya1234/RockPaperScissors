@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+                          <html lang="en">
+                        <head>
+    <script>
+        // for somg vibe
+       const gameAudio = new Audio('bg.mp3');
+const endGameAudio = new Audio('end.mp3');
+gameAudio.play(); 
+alert('Let\'s play Rock Paper Scissors. A tournament between you and the AI. The winner will be determined by the best of three rounds. You can choose any one of the three options. The computer will also choose any one of the three options.');
+        
+        let nm = "";
+
+        while (!nm) {
+            nm = prompt("Enter your name:");
+        }
+
+
+    </script>
+                              <meta charset="UTF-8">
+                          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                          <title>Buttons 1, 2, 3</title>
+                          <style>
+                              body {
+                                  text-shadow:0 0 10px #00fffb,0 0 #0081bc;
+                                    margin-top:50px;
+
+                                      width: 100%;
+                                      height: 500px;
+                                      background: rgba(255, 255, 255, 0.1);
+                                      border: 1px solid rgba(255, 255, 255, 0.3);
+                                      border-radius: 15px;
+                                      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                                      backdrop-filter: blur(10px);                          
+                                  margin: 0;
+                                  font-family: Arial, sans-serif;
+    background-color:  #252A34;                            
+                              }
+
+                              .button-container {
+                                  display: flex;
+                                  justify-content: center;
+                                  align-items: center;
+                                  
+                              }
+button.reset{
+    border: 1px solid cyan;
+    
+    background-color:black;
+    color:aquamarine;
+    text-decoration:bold;
+    font-weight:300;
+    font-size:10px;
+    
+}    
+
+#dv{
+    /*for heading*/
+    text-shadow: -1px 1px 0 #41ba45,
+        1px 1px 0 #0f0,
+              1px 1px 0 #c63d2b,
+    1px -1px 0 #42afac,
+            -1px -1px 0 #c6c23f;
+      
+
+    box-shadow:0 0 30px black,0 0 #0f0;
+    border-radius:10px;
+    border: 1px solid cyan;
+    height:70vh;
+    background-color:#252A34;
+    
+    text-decoration:bold;
+    
+    font-size:50px;
+    white-space:pre-wrap;
+    display:none;
+   padding:0px;
+      margin:1px;
+z-index:1;
+      position:absolute;
+    top:0;
+     /
+}
+      hr{
+     border-radius:6px;     
+      }                        button {
+                                  padding: 15px 30px;
+                                  margin: 0 10px;
+                                  font-size: 20px;
+                                  background-color: #4CAF50;
+                                  color: white;
+                                  border: none;
+                                  border-radius: 10px;
+                                  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                                  
+                  
+                                  transition: background-color 0.3s, transform 0.2s;
+                              }
+
+                              button:hover {
+                                  background-color: #45a049;
+                                  transform: translateY(-2px);
+                              }
+
+                              button:focus {
+                                  outline: none;
+                              }
+
+                              button:active {            
+transform: translateY(2px);
+                 
+                                  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                                  
+                              }
+#score{
+    border-radius:6px;
+    border: px solid black;
+    height:30px;
+    background-color:grey;
+    width:70px;
+    text-decoration:bold;
+    color:black;
+    font-size:20px;
+    text-align:center;
+}   
+  h1{
+    font-weight:bold; 
+text-shadow: 0px 4px 8px rgba(0, 0, 1,0.6);
+      
+  }                        
+                          </style>
+                          </head>
+                          <body>
+                        <center>                              <p id="dv"></p>   <h1>
+       Rock paper & Scissors 
+    </h1>       </center> <hr size="4" width="50%" color="#0f0">  <p id="score"></p>         
+     <br>  <br>   
+  <center>                <div class="button-container" 
+ >
+                              <button class="rock" value="1"
+                                onclick="checkMatch(this.value)">✊🏻</button>
+                            <button class="paper" value="2"
+                            onclick="checkMatch(this.value)">🖐🏻</button>
+<button class="rock" value="3"
+                                onclick="checkMatch(this.value)">✌🏻</button><br><br>
+                            
+                   
+                          </div>
+            <br>     <button class="reset" onclick="window.location.reload()" >New Game  🎮</button> 
+  </center>   <br><br> 
+   <center>  <h1>👤 VS 💻  </h1>
+          
+       <script>
+let rounds = 0;
+let wins = 0; 
+let losses = 0;
+
+function checkMatch(buttonValue) {
+    
+      
+    const computer = Math.floor(Math.random() * 3) + 1;
+
+    if (parseInt(buttonValue) === 1) {
+        if (computer === 1) {
+            alert("It's a draw");  
+            document.getElementById("dv").innerHTML = "you choose : ✊🏻                  AI choose : ✊🏻                It's a draw!";
+        } else if (computer === 2) {
+            alert("You lose");
+            document.getElementById("dv").innerHTML = "you choose : ✊🏻                  AI choose : 🖐🏻             Sorry, you lose 😔";
+            losses++;
+        } else {
+            alert("You win");
+            document.getElementById("dv").innerHTML = "you choose : ✊🏻                  AI choose : ✌🏻             Congratulations!! you win 😊🎉";
+            wins++;
+        }
+    } else if (parseInt(buttonValue) === 2) {
+        if (computer === 1) {
+            alert("You win");
+            document.getElementById("dv").innerHTML = "you choose : 🖐🏻                  AI choose : ✊🏻             Congratulations!! you win 😊🎉";
+            wins++;
+        } else if (computer === 2) {
+            alert("It's a draw!");
+            document.getElementById("dv").innerHTML = "you choose : 🖐🏻                  AI choose : 🖐🏻                It's a draw!";
+        } else {
+            alert("You lose");
+            document.getElementById("dv").innerHTML = "you choose : 🖐🏻                 AI choose : ✌🏻             Sorry, you lose 😔";
+            losses++;
+        }
+    } else {
+        if (computer === 1) {
+            alert("You lose");
+            document.getElementById("dv").innerHTML = "you choose : ✌🏻                  AI choose : ✊🏻             Sorry, you lose 😔";
+            losses++;
+        } else if (computer === 2) {
+            alert("You win");
+            document.getElementById("dv").innerHTML = "you choose : ✌🏻                  AI choose : 🖐🏻             Congratulations!! you win 😊🎉";
+            wins++;
+        } else {
+            alert("It's a draw!");  
+            document.getElementById("dv").innerHTML = "you choose : ✌🏻                  AI choose : ✌🏻                It's a draw!";
+        }
+        
+        
+    }
+    
+document.querySelector("#dv").style.display = "block";
+              setTimeout(function() {             document.querySelector("#dv").style.display = "none";
+                    }, 3000);
+    rounds++;
+document.getElementById("score").innerHTML = `score:${wins}`;
+    if (rounds === 3) {
+        //play ▶️ of end
+        endGameAudio.play();
+        if (wins > losses) {
+            alert(`Congratulations ${nm}! You are the winner!`);
+        } else if (wins < losses) {
+            alert(`${nm} You lost the game. Better luck next time!`);
+        } else {
+            alert("It's a draw game.");
+        }
+        // Resetting the game
+        rounds = 0;
+        wins = 0;
+        losses = 0;
+        document.getElementById("dv").innerHTML = '';
+        
+    }
+}
+
+// Function to display the results
+function getChoice(value) {
+    if (value === 1) return '✊🏻';
+    if (value === 2) return '🖐🏻';
+    if (value === 3) return '✌🏻';
+            
+            
+                }
+           
+ 
+               </script>
+                            
+                          </body>
+             
+                          </html>
+          <!--
+              text-shadow:0 0 10px #00fffb,0 0 #0081bc;
+            margin-top:50px;
+
+              width: 100%;
+              height: 750px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              border-radius: 15px;
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+              backdrop-filter: blur(10px);
+
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+               //glow up
+            left:0;      
+            text-shadow:0 0 20px #00fffb,0 0 #0081bc;
+            color:black;
+              text-decoration:underline;
+              text-decoration-color:white;
+              left:100%;
+              
